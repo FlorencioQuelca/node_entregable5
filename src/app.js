@@ -1,5 +1,6 @@
 //? Dependencies
 const express = require('express')
+console.log("entro aqui")
 const cors = require('cors')
 
 //? Files
@@ -11,7 +12,6 @@ const authRouter = require('./auth/auth.router')
 const conversationRouter = require('./conversations/conversations.router')
 
 //? Initial Configs
-
 const app = express()
 //? Enable incoming JSON data
 app.use(express.json())
