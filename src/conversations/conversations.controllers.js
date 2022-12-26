@@ -4,8 +4,11 @@ const Conversations = require('../models/conversations.models')
 const Participants = require('../models/participants.models')
 const Users = require('../models/users.models')
 
-const findAllConversations = async() => {
+const findAllConversations = async(id) => {
     const data = await Conversations.findAll({
+        where: {
+            id: id
+        },
         include: {
             model: Participants,
             include: {

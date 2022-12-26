@@ -9,7 +9,7 @@ const participantValidate = (req, res, next) => {
             if (data) {
                 next()
             } else {
-                res.status(400).json({ message: "You're not participant from this conversation" })
+                res.status(400).json({ message: "You're not participant from this conversation :(" })
             }
         })
         .catch(err => {

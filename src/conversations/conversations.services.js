@@ -1,5 +1,10 @@
 const conversationController = require('./conversations.controllers')
 
+
+// normal del profe
+/*
+
+
 const getAllConversations = (req, res) => {
     conversationController.findAllConversations()
         .then((data) => {
@@ -10,8 +15,20 @@ const getAllConversations = (req, res) => {
         })
 }
 
-const getConversationById = (req, res) => {
 
+*/
+//  OPCIONAL FUNCIONANDO
+const getAllConversations = (req, res) => {
+    const userId = req.user.id
+    conversationController.findAllConversations(userId)
+        .then((data) => {
+            res.status(200).json(data)
+        })
+        .catch((err) => {
+            res.status(400).json({ message: err.message })
+        })
+}
+const getConversationById = (req, res) => {
     const id = req.params.conversation_id
     conversationController.findConversationById(id)
         .then(data => {
@@ -25,6 +42,7 @@ const getConversationById = (req, res) => {
             res.status(400).json({ message: err.message })
         })
 }
+
 
 const postConversation = (req, res) => {
     const { title, imageUrl, participantId } = req.body
