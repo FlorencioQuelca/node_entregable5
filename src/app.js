@@ -1,9 +1,9 @@
 //? Dependencies
 const express = require('express')
-console.log("entro aqui")
 const cors = require('cors')
 
-//? Files
+console.log("entro aqui")
+    //? Files
 const config = require('../config')
 const db = require('./utils/database')
 const initModels = require('./models/initModels')
@@ -13,16 +13,16 @@ const conversationRouter = require('./conversations/conversations.router')
 
 //? Initial Configs
 const app = express()
-//? Enable incoming JSON data
+    //? Enable incoming JSON data
 app.use(express.json())
-//? Enable CORS 
+    //? Enable CORS 
 app.use(cors())
 
 //? Authenticate DB
 db.authenticate()
     .then(() => console.log('Database Authenticated'))
     .catch((err) => console.log(err))
-//? Sync DataBase Models
+    //? Sync DataBase Models
 db.sync()
     .then(() => console.log('Database Synced'))
     .catch(err => console.log(err))

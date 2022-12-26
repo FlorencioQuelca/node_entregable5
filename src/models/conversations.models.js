@@ -5,7 +5,8 @@ const Users = require('./users.models')
 const Conversations = db.define('conversations', {
     id: {
         type: DataTypes.UUID,
-        primaryKey: true
+        primaryKey: true,
+
     },
     title: {
         type: DataTypes.STRING,

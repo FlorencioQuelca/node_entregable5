@@ -4,19 +4,19 @@ const Conversations = require('../models/conversations.models')
 const Participants = require('../models/participants.models')
 const Users = require('../models/users.models')
 
-const findAllConversations = async () => {
+const findAllConversations = async() => {
     const data = await Conversations.findAll({
         include: {
             model: Participants,
             include: {
-                model : Users
+                model: Users
             }
         }
     })
     return data
 }
 
-const findConversationById = async (id) => {
+const findConversationById = async(id) => {
     const data = await Conversations.findOne({
         where: {
             id: id
@@ -31,7 +31,7 @@ const findConversationById = async (id) => {
     return data
 }
 
-const createConversation = async (obj) => {
+const createConversation = async(obj) => {
     const newConversation = await Conversations.create({
         id: uuid.v4(),
         title: obj.title,
@@ -63,12 +63,12 @@ const updateConversation = async(id, obj) => {
         }
     })
     return data[0] //? array
-    //?  [1] Se edito algo correctamente (si encontro el id)
-    //? [0] No se edito nada (porque no encontro el id)
+        //?  [1] Se edito algo correctamente (si encontro el id)
+        //? [0] No se edito nada (porque no encontro el id)
 }
 
 
-const removeConversation = async (id) => {
+const removeConversation = async(id) => {
     const data = await Conversations.destroy({
         where: {
             id: id
@@ -87,7 +87,7 @@ const removeConversation = async (id) => {
 
 module.exports = {
     findAllConversations,
-    createConversation, 
+    createConversation,
     findConversationById,
     updateConversation,
     removeConversation

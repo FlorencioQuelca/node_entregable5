@@ -1,3 +1,5 @@
+## CHAT API
+
 Punto de partida
 
 Cuando queremos recuperar una contraseña hago una peticion que me pide el email

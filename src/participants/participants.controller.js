@@ -1,6 +1,6 @@
 const Participants = require('../models/participants.models')
 
-const findParticipantConversations = async (userId, conversationId) => {
+const findParticipantConversations = async(userId, conversationId) => {
     const data = await Participants.findOne({
         where: {
             userId: userId,
@@ -9,9 +9,6 @@ const findParticipantConversations = async (userId, conversationId) => {
     })
     return data
 }
-
-
-
 module.exports = {
     findParticipantConversations
 }
